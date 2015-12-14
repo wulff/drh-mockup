@@ -1,0 +1,20 @@
+{
+  "name": "drh-mockup",
+  "version": "1.0.0",
+  "authors": [
+    "Morten Wulff <wulff@ratatosk.net>"
+  ],
+  "description": "Mockups for the new version of www.drh.dk.",
+  "main": "gulpfile.js",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "foundation-sites": "~6.0.0",
+    "motion-ui": "~1.1.0"
+  },
+  "private": true
+}
