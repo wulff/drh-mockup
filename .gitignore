@@ -1,0 +1,9 @@
+bower_components
+dist
+node_modules
+src
+notes.txt
+README.md
+bower.json
+gulpfile.js
+package.json
