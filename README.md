@@ -10,7 +10,18 @@ Before you can build this project you'll need to install the latest versions of 
 2. `sudo npm install`
 3. `gulp`
 
+
+Requirements
+------------
+
+Tested with the following node and npm versions:
+
+    node v5.3.0
+    npm  3.3.12
+
 TODO
 ----
 
+* Use gulp-cssnano instead of gulp-minify-css
+* Use gulp-htmlmin instead of gulp-minify-html
 * Add UnCSS support
