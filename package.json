@@ -2,7 +2,7 @@
   "name": "drh-mockup",
   "version": "1.0.0",
   "description": "Mockups for the new version of www.drh.dk.",
-  "repository": "http://github.com/wulff/foundation-drh-mockup",
+  "repository": "http://github.com/wulff/drh-mockup",
   "main": "gulpfile.js",
   "scripts": {
     "start": "gulp",
