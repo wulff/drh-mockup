@@ -7,7 +7,7 @@ var
   connect = require('gulp-connect'),
   // imagemin = require('gulp-imagemin'),
   minifyCSS = require('gulp-minify-css'),
-  minifyHTML = require('gulp-minify-html'),
+  // minifyHTML = require('gulp-minify-html'),
   sass = require('gulp-sass'),
   uglify = require('gulp-uglify');
 
@@ -55,7 +55,7 @@ gulp.task('pages', function(done) {
   };
 
   return gulp.src(paths.pages)
-    .pipe(minifyHTML(opts))
+    // .pipe(minifyHTML(opts))
     .pipe(gulp.dest(paths.dist));
 });
 
@@ -79,7 +79,7 @@ gulp.task('serve', ['build'], function() {
   browser.init({
     server: paths.dist,
     port: port,
-    startPath: '/front.html',
+    startPath: '/',
   });
 });
 
