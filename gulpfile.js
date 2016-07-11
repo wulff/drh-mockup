@@ -6,7 +6,7 @@ var
   concat = require('gulp-concat'),
   connect = require('gulp-connect'),
   // imagemin = require('gulp-imagemin'),
-  minifyCSS = require('gulp-minify-css'),
+  cleanCSS = require('gulp-clean-css'),
   // minifyHTML = require('gulp-minify-html'),
   sass = require('gulp-sass'),
   uglify = require('gulp-uglify');
@@ -32,14 +32,14 @@ var paths = {
   ],
   sass: [
     'src/assets/scss',
-    'bower_components/foundation-sites/scss',
-    'bower_components/motion-ui/src/'
+    'node_modules/foundation-sites/scss',
+    'node_modules/motion-ui/src/'
   ],
   javascript: [
-    'bower_components/jquery/dist/jquery.js',
-    'bower_components/what-input/what-input.js',
-    'bower_components/foundation-sites/js/foundation.core.js',
-    'bower_components/foundation-sites/js/foundation.util.*.js',
+    'node_modules/jquery/dist/jquery.js',
+    'node_modules/what-input/what-input.js',
+    'node_modules/foundation-sites/js/foundation.core.js',
+    'node_modules/foundation-sites/js/foundation.util.*.js',
     'src/assets/js/!(drh.js)**/*.js',
     'src/assets/js/drh.js'
   ]
@@ -67,7 +67,7 @@ gulp.task('sass', function(done) {
    // .pipe(autoprefixer({
    //   browsers: compatibility
    // }))
-   // .pipe(minifyCSS())
+   // .pipe(cleanCSS())
    .pipe(gulp.dest(paths.dist + '/css'));
 });
 
