@@ -4,19 +4,13 @@ DRH Mockup
 Getting started
 ---------------
 
-Before you can build this project you'll need to install the latest versions of `npm`, `bower`, and `gulp`. When all the requirements are met, you can run the following commands to build the mockups:
+Before you can build this project you'll need to install the latest version of `yarn`. When the requirements are met, you can run the following commands to build the mockups:
 
-1. `npm install`
+1. `yarn install`
 2. `gulp`
 
+You can see a preview of the pages at http://wulff.github.io/drh-mockup/.
 
-Requirements
-------------
-
-Tested with the following node and npm versions:
-
-    node v5.3.0
-    npm  3.3.12
 
 TODO
 ----

@@ -25,23 +25,21 @@ var paths = {
   dist: 'dist',
   assets: [
     'src/assets/**/*',
-    '!src/assets/{!img,js,scss}/**/*'
+    '!src/assets/{!js,scss}/**/*'
   ],
   pages: [
     'src/pages/**/*.html',
   ],
   sass: [
     'src/assets/scss',
-    'node_modules/foundation-sites/scss',
-    'node_modules/motion-ui/src/'
+    'node_modules/bootstrap/scss',
   ],
   javascript: [
-    'node_modules/jquery/dist/jquery.js',
-    'node_modules/what-input/what-input.js',
-    'node_modules/foundation-sites/js/foundation.core.js',
-    'node_modules/foundation-sites/js/foundation.util.*.js',
-    'src/assets/js/!(drh.js)**/*.js',
-    'src/assets/js/drh.js'
+    // TODO: do we need this at all? could we cherry-pick from bootstrap instead?
+    'node_modules/tether/dist/js/tether.js',
+    'node_modules/bootstrap/dist/js/bootstrap.js',
+    // 'src/assets/js/!(drh.js)**/*.js',
+    'src/assets/js/site.js'
   ]
 };
 
@@ -59,6 +57,12 @@ gulp.task('pages', function(done) {
     .pipe(gulp.dest(paths.dist));
 });
 
+gulp.task('assets', function(done) {
+  return gulp.src(paths.assets)
+    // .pipe(minifyHTML(opts))
+    .pipe(gulp.dest(paths.dist));
+});
+
 gulp.task('sass', function(done) {
   return gulp.src('src/assets/scss/drh.scss')
    .pipe(sass({
@@ -71,8 +75,17 @@ gulp.task('sass', function(done) {
    .pipe(gulp.dest(paths.dist + '/css'));
 });
 
+gulp.task('javascript', function(done) {
+  return gulp.src(paths.javascript)
+    .pipe(concat('drh.js'))
+    // .pipe(uglify())
+    .pipe(gulp.dest(paths.dist + '/js/'));
+});
+
+// TODO: add javascript-vendor task to copy jquery etc. into place.
+
 gulp.task('build', function(done) {
-  sequence('clean', ['pages', 'sass'], done);
+  sequence('clean', ['pages', 'assets', 'sass', 'javascript'], done);
 });
 
 gulp.task('serve', ['build'], function() {
@@ -84,6 +97,7 @@ gulp.task('serve', ['build'], function() {
 });
 
 gulp.task('default', ['build', 'serve'], function() {
+  // TODO: Watch js, img folder as well
   gulp.watch(['src/assets/scss/**/*.scss'], ['sass', browser.reload]);
   gulp.watch(['src/pages/**/*.html'], ['pages', browser.reload]);
 });
